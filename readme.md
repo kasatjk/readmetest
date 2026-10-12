@@ -1,20 +1,16 @@
 # New Balance Store
 
-> Повнофункціональна e-commerce вебплатформа для перегляду, фільтрації та онлайн-замовлення спортивного взуття й одягу, створена з натхненням від офіційного онлайн-магазину New Balance. Навчальний курсовий проєкт на базі сучасного стеку React, ASP.NET Core Web API та Firebase.
+> Повнофункціональна e-commerce вебплатформа для перегляду, фільтрації та онлайн-замовлення спортивного взуття й одягу, створена на основі офіційного онлайн-магазину New Balance. Навчальний курсовий проєкт на базі сучасного стеку React, ASP.NET Core Web API та Firebase.
 
-[🌐 Live Demo](https://alexelnx.github.io/NewBalanceStore/) &nbsp;|&nbsp; [📚 GitHub Репозиторій](https://github.com/AlexElNX/NewBalanceStore) &nbsp;|&nbsp; [📑 Документація API (Swagger)](http://localhost:5000/swagger)
+[🌐 Live Demo]() &nbsp;|&nbsp; [📚 GitHub Репозиторій](https://github.com/AlexElNX/NewBalanceStore) &nbsp;|&nbsp; [📑 Документація API (Swagger)](https://newbalancestoreback.onrender.com/swagger) &&nbsp;|&nbsp; [📄 Документація проєкту (DocFX)](https://zemnyux.github.io/NewBalanceStoreBack/index.html/)
 
 ---
 
 ## 📖 About
 
-**New Balance Store** — це комплексний вебзастосунок електронної комерції (Full-Stack SPA), спроєктований та реалізований як навчальний проєкт з метою демонстрації принципів побудови масштабованої Clean Architecture, роботи з REST API, автентифікації на базі JWT, хмарних баз даних NoSQL (Firebase Realtime Database) та розробки інтерактивного інтерфейсу користувача на React.
+**New Balance Store** — це  вебзастосунок електронної комерції, спроєктований та реалізований з метою демонстрації принципів побудови масштабованої Clean Architecture, роботи з REST API, автентифікації на базі JWT, хмарних баз даних NoSQL (Firebase Realtime Database) та розробки інтерактивного інтерфейсу користувача на React.
 
 Проєкт відтворює ключові призначені для користувача сценарії сучасного онлайн-магазину брендового взуття: від перегляду та багатокритеріальної фільтрації каталогу до додавання варіацій товару (колір/розмір) у кошик, оформлення замовлення та адміністрування асортименту.
-
-> [!NOTE]
-> ### ⚠️ Навчальний дисклеймер (Disclaimer)
-> Цей проєкт створено **виключно з навчальною та некомерційною метою** для демонстрації навичок вебпрограмування. Він не є офіційним представництвом бренду New Balance та не афілійований з корпорацією New Balance Athletics, Inc. Усі торговельні марки, логотипи, назви моделей та фотоматеріали належать їхнім законним правовласникам.
 
 ---
 
@@ -41,8 +37,8 @@
   - Збереження замовлення у базі даних зі статусом `Pending`.
 - 🔐 **Автентифікація та авторизація**:
   - Реєстрація та авторизація користувачів за допомогою JWT-токенів.
-  - Рольова модель доступу (RBAC): `Guest`, `Customer`, `Admin`.
-  - Захищені маршрути на фронтенді (`ProtectedRoutes`).
+  - Рольова модель доступу: `Guest`, `Customer`, `Admin`.
+  - Захищені маршрути на фронтенді.
 - 🛠️ **Панель адміністратора (Admin Dashboard)**:
   - Повний CRUD для товарів (створення, редагування, видалення).
   - Завантаження зображень товарів безпосередньо у хмару Cloudinary через API.
@@ -53,9 +49,9 @@
 
 ## 🎨 Design
 
-Дизайн інтерфейсу натхненний американською версією офіційного магазину **New Balance US**:
+Дизайн інтерфейсу базується на зовнішньому вигляді офіційного магазину [**New Balance**](https://www.newbalance.com/):
 
-- **Стилістика**: фірмовий мінімалізм, чітка типографіка без засічок, використання акцентного фірмового червоного кольору New Balance (`#e21836`), глибокого чорного (`#111111`) та чистих світлих тонів для контрасту й фокусу на фотографіях виробів.
+- **Стилістика**: фірмовий мінімалізм, чітка типографіка без засічок та чистих світлих тонів для контрасту й фокусу на фотографіях виробів.
 - **Компоненти UI**:
   - `TopHeader` & `MainHeader`: навігаційне меню, рядок пошуку, посилання на авторизацію та іконка кошика з лічильником товарів.
   - `ProductFilters`: бічна панель фільтрів із підтримкою комбінованого вибору критеріїв.
@@ -178,26 +174,9 @@ graph TD
 
 ---
 
-## 🐳 Docker
-
-Серверна частина має повністю налаштований багатоетапний (multi-stage) `Dockerfile` на базі офіційних образів .NET:
-
-### Збірка Docker-образу:
-```bash
-docker build -t newbalancestore-api .
-```
-
-### Запуск контейнера:
-```bash
-docker run -d -p 8080:8080 --name newbalance-api newbalancestore-api
-```
-Після запуску API доступне за адресою `http://localhost:8080`, а документація Swagger — за адресою `http://localhost:8080/swagger`.
-
----
-
 ## ⚙️ Configuration
 
-### 1. Backend (`appsettings.json` або User Secrets)
+### 1. Backend (`appsettings.json`)
 ```json
 {
   "Firebase": {
@@ -220,9 +199,6 @@ docker run -d -p 8080:8080 --name newbalance-api newbalancestore-api
 
 ### 2. Frontend (`frontend/.env`)
 Створіть файл `.env` у каталозі `frontend/`:
-```env
-VITE_API_URL=http://localhost:5000/api
-```
 
 ---
 
@@ -285,8 +261,8 @@ docfx docfx.json
 
 ## 🌐 Deployment
 
-- **Backend**: може бути розгорнуто як Docker-контейнер на сервісах **Render**, **Railway**, **Fly.io** або в хмарі **Azure App Service**.
-- **Frontend**: оптимізований статичний білд (SPA) розгортається на **GitHub Pages**, **Vercel** або **Netlify** із перенаправленням усіх запитів на `index.html`.
+- **Backend**: **Render**.
+- **Frontend**: **Vercel**.
 - **Database & Storage**: Google Firebase Realtime Database та Cloudinary керуються у хмарі та доступні за надійними API-ключами.
 
 ---
@@ -311,7 +287,7 @@ docfx docfx.json
 
 Проєкт містить повне покриття ключової бізнес-логіки юніт- та інтеграційними тестами:
 
-### 1. Бекенд-тести (NUnit + FluentAssertions + Moq)
+### 1. Бекенд-тести
 - **Unit Tests (`NewBalanceStore.UnitTests`)**: 51 тест (покриття `ProductService`, `OrderService`, `AuthService`, `Cart`, мапінгу AutoMapper та екшенів контролерів).
 - **Integration Tests (`NewBalanceStore.IntegrationTests`)**: 10 тестів на базі `WebApplicationFactory` для перевірки реальних HTTP-запитів до API (авторизація, товари, замовлення).
 
@@ -320,7 +296,7 @@ docfx docfx.json
 dotnet test
 ```
 
-### 2. Клієнтські тести (Vitest + Testing Library)
+### 2. Клієнтські тести
 - Покриття логіки кошика (`Cart.test.js`), замовлень (`Order.test.js`) та взаємодії на сторінці товару (`ProductPage.test.js`).
 
 **Запуск тестів фронтенду:**
@@ -372,7 +348,6 @@ npm run test:run
 - [x] Завантаження фотографій через Cloudinary API.
 - [x] Покриття бізнес-логіки тестами (NUnit + Vitest).
 - [ ] Інтеграція платіжного шлюзу (Stripe / LiqPay / MonoPay).
-- [ ] Розділ обраного / списку бажань (Wishlist).
 - [ ] Відгуки та рейтинги до товарів від верифікованих покупців.
 - [ ] Email-сповіщення клієнта про зміну статусу замовлення.
 
@@ -382,15 +357,7 @@ npm run test:run
 
 Команда розробників **BalanceDevs**:
 
-- **Олександр (Alex)** — [@AlexElNX](https://github.com/AlexElNX) — *Team Lead / Architecture / Frontend & Full-Stack Development*
-- **Нікіта (ZemNyux)** — [@ZemNyux](https://github.com/ZemNyux) — *Backend Developer / DevOps, Swagger & DocFX Documentation*
-- **kasatjk** — [@kasatjk](https://github.com/kasatjk) — *Frontend Developer / UI Components*
-- **arg50** — [@arg50](https://github.com/arg50) — *Frontend Developer / Styling & Bugfixes*
-
----
-
-## 📄 License
-
-Проєкт розповсюджується під ліцензією [MIT](LICENSE).  
-Використовується виключно в **освітніх цілях** у межах навчального курсу.
-
+- **Олексій Єлісєєв** — [@AlexElNX](https://github.com/AlexElNX) — *Team Lead / Frontend Developer*
+- **Микита Габер** — [@ZemNyux](https://github.com/ZemNyux) — *Backend Developer*
+- **Данило Павлюк** — [@kasatjk](https://github.com/kasatjk) — *Tester and Technical Writer*
+- **Олексій Драціон** — [@arg50](https://github.com/arg50) — *Full-Stack Developer*
